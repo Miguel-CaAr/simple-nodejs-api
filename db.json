@@ -1,0 +1,20 @@
+{
+  "Cursos": [
+    {
+      "id": 1,
+      "name": "Matematicas",
+      "Descripcion": "Introduccion a las matematicas, se enseñara aritmetica",
+      "teacherId": "1",
+      "alumnos": [],
+      "finished": "27-03-2024"
+    },
+    {
+      "id": 2,
+      "name": "Introduccion a la programacion",
+      "Descripcion": "Principios basicos de la programacion con diagramas de flujo y PSeInt",
+      "teacherId": "2",
+      "alumnos": [],
+      "finished": "28-04-2024"
+    }
+  ]
+}
