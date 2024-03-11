@@ -1,9 +1,11 @@
 import express from "express"; //*Se importa la biblioteca de express
 import fs, { read } from "fs"; //*Importamos el modulo de filesystem de nodejs
-import bodyParser from "body-parser"; //*Middleware de nodejs para analizar el cuerpo de la solicitud entrante (JSON) y convertirlo en un objeto js accesible para 'req.body'.
+// import bodyParser from "body-parser"; //Middleware de nodejs para analizar el cuerpo de la solicitud entrante (JSON) y convertirlo en un objeto js accesible para 'req.body'.
 
 const app = express(); //*Se crea una instancia de express
-app.use(bodyParser.json()); //* se activa el bodyParser
+// app.use(bodyParser.json()); //se activa el bodyParser
+app.use(express.json()); //* No se necesita bodyParser
+app.disable('x-powered-by') //* desactiva el spam que hace xpress en los headers
 
 /**
  * *Funcion para leer todos los datos del archivo db.json
@@ -63,7 +65,7 @@ app.get("/cursos/:id", (req, res) => {
 });
 
 //*Endpoint para crear un curso.
-//! Sin el middleware bodyParser no funcionaria.
+//! Sin el middleware bodyParser no funcionaria. Ahora se usa uno de express llamado express.json()
 app.post("/cursos", (req, res) => {
   const data = readData(); //Se obtienen todos los cursos existentes
   const body = req.body; //Se obtiene el cuerpo de la request
@@ -74,6 +76,7 @@ app.post("/cursos", (req, res) => {
   };
   data.Cursos.push(newCurso); //Se empuja el nuevo curso dentro de los cursos existentes
   writeData(data); //Se reescribe el archivo con el nuevo curso.
+  res.json({ message: "Curso Creado" });
 });
 
 //* Actualizar un curso

@@ -15,6 +15,13 @@
       "teacherId": "2",
       "alumnos": [],
       "finished": "28-04-2024"
+    },
+    {
+      "id": 3,
+      "name": "Geografia",
+      "description": "Le acaba de pegar una chinga a Chito Vera",
+      "Descripcion": "Curso para aprender la geografia de america del norte",
+      "finished": "25-12-2024"
     }
   ]
 }
